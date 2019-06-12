@@ -1,3 +1,113 @@
 .list-group-item {
   line-height: 2.5;
 }
+
+h2{
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+background-image: url(https://wi-images.condecdn.net/image/B1NZW376pxM/crop/1620/f/space_11.jpg); background-size: 100%;
+
+}
+
+.planet {
+  position: absolute;
+  width: var(--size);
+  height: var(--size);
+  top: calc(50% - var(--size) / 2);
+  left: calc(50% - var(--size) / 2);
+  border-radius: 50%;
+}
+
+h1 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: green;
+  font-size: 100px;
+}
+#fact-panel {
+    background-color: aquamarine;
+    padding: 50px;
+    height: 500px;
+}
+
+#sun {
+  --size: 100px;
+  --push: 0px;
+  background: linear-gradient(45deg, goldenrod, yellow);
+  animation: orbit 1s infinite linear;
+}
+
+#Mercury {
+  --size: 8px;
+  --push: 80px;
+  background-image: linear-gradient(yellow, red);
+  animation: orbit 15s infinite linear;
+}
+
+#Venus {
+  --size: 11px;
+  --push: 120px;
+  background-image: linear-gradient(orange, yellow);
+  animation: orbit 20s infinite linear;
+}
+
+#Earth {
+  --size: 20px;
+  --push: 160px;
+  background-image: linear-gradient(blue, green);
+  animation: orbit 24s infinite linear;
+}
+
+#Mars {
+  --size: 15px;
+  --push: 200px;
+  background-image: linear-gradient(orange, brown);
+  animation: orbit 30s infinite linear;
+}
+
+#Jupiter {
+  --size: 70px;
+  --push: 260px;
+  background-image: linear-gradient(orange, red, orange,red, orange);
+  animation: orbit 40s infinite linear;
+}
+
+#Saturn {
+  --size: 45px;
+  --push: 320px;
+  background-image: linear-gradient(rgb(255, 153, 0), yellow);
+  animation: orbit 50s infinite linear;
+}
+
+
+#Uranus {
+  --size: 30px;
+  --push: 360px;
+  background-image: radial-gradient(turquoise, whitesmoke);
+  animation: orbit 60s infinite linear;
+}
+
+#Neptune {
+  --size: 30px;
+  --push: 400px;
+  background-image: radial-gradient(turquoise,grey);
+  animation: orbit 70s infinite linear;
+}
+
+#Pluto {
+  --size: 5px;
+  --push: 460px;
+  background-image: radial-gradient(turquoise,grey);
+  animation: orbit 87s infinite linear;
+}
+
+@keyframes orbit {
+  from {
+    transform: rotate(0) translateX(var(--push));
+  }
+
+  to {
+    transform: rotate(360deg) translateX(var(--push));
+  }
+}
