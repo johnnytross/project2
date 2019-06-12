@@ -4,6 +4,65 @@ var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
 
+var planets = [
+  { name: "Mercury", height: 20, width: 20 },
+  { name: "Venus", height: 22, width: 22 },
+  { name: "Earth", height: 30, width: 30 },
+  { name: "Mars", height: 25, width: 25 },
+  { name: "Jupiter", height: 100, width: 100 },
+  { name: "Saturn", height: 90, width: 90 },
+  { name: "Uranus", height: 80, width: 80 },
+  { name: "Neptune", height: 80, width: 80 },
+  { name: "Pluto", height: 15, width: 15 }
+];
+
+$(window).on("load", function() {
+  $("#planet-div").hide();
+  $("#sun").hide();
+});
+
+function renderPlanets() {
+  $("#header").hide();
+  $("#front-page").hide();
+  $("#planet-div").show();
+  $("#sun").show();
+
+  for (var i = 0; i < planets.length; i++) {
+    var planet = $("<div>");
+
+    planet.addClass("planet");
+
+    planet.attr("id", planets[i].name);
+
+    $("#planets").append(planet);
+  }
+
+  $(".planet").on("click", function() {
+    var queryURL =
+      "https://images-api.nasa.gov/search?q=apollo%2011&description=moon%20landing&media_type=image";
+
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response) {
+      console.log(response);
+    });
+
+    console.log($(this).attr("id"));
+    $("#sun").hide();
+    $("#planets").hide();
+    //$("#fact-panel").show();
+
+    $("#fact-panel").html(
+      "<h1>" + $(this).attr("id") + "</h1>\n<h2>It's a planet!</h2>"
+    );
+  });
+}
+
+$("#planet-btn").on("click", function() {
+  renderPlanets();
+});
+
 // The API object contains methods for each kind of request we'll make
 var API = {
   saveExample: function(example) {
