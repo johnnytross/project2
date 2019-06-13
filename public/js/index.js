@@ -4,6 +4,7 @@ var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
 
+//Array of objects that each represent a planet and their relative size
 var planets = [
   { name: "Mercury", height: 20, width: 20 },
   { name: "Venus", height: 22, width: 22 },
@@ -16,11 +17,13 @@ var planets = [
   { name: "Pluto", height: 15, width: 15 }
 ];
 
+//On load, hide the planets and the sun
 $(window).on("load", function() {
   $("#planet-div").hide();
   $("#sun").hide();
 });
 
+//Function that hides the header and buttons on front page, shows the sun and planets 
 function renderPlanets() {
   $("#header").hide();
   $("#front-page").hide();
@@ -37,6 +40,7 @@ function renderPlanets() {
     $("#planets").append(planet);
   }
 
+  //Once you click a planet or the sun, console log the response from the API URL and hide the planets and the sun
   $(".planet").on("click", function() {
     var queryURL =
       "https://images-api.nasa.gov/search?q=apollo%2011&description=moon%20landing&media_type=image";
@@ -59,9 +63,18 @@ function renderPlanets() {
   });
 }
 
+//When a user clicks take a trip, call the renderPlants function
 $("#planet-btn").on("click", function() {
   renderPlanets();
 });
+
+//Create a variable to easily be able to loop through all of the planets 
+let planetImages = $(".planet")
+
+//Pausing planets attempt 1 
+$("ul").filter(function() {
+  
+})
 
 // The API object contains methods for each kind of request we'll make
 var API = {
