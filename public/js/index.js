@@ -42,8 +42,10 @@ function renderPlanets() {
 
   //Once you click a planet or the sun, console log the response from the API URL and hide the planets and the sun
   $(".planet").on("click", function() {
-    var queryURL =
-      "https://images-api.nasa.gov/search?q=mars%20planet&description=big%20photo&media_type=image";
+    let search = this.id;
+    console.log("Planet/Sun: "+search);
+    var queryURL = `https://api.le-systeme-solaire.net/rest/bodies/${search}`
+    // "https://images-api.nasa.gov/search?q=mars&media_type=image";
 
     $.ajax({
       url: queryURL,
