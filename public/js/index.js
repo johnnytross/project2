@@ -42,8 +42,10 @@ function renderPlanets() {
 
   //Once you click a planet or the sun, console log the response from the API URL and hide the planets and the sun
   $(".planet").on("click", function() {
-    var queryURL =
-      "https://images-api.nasa.gov/search?q=apollo%2011&description=moon%20landing&media_type=image";
+    let search = this.id;
+    console.log("Planet/Sun: "+search);
+    var queryURL = `https://api.le-systeme-solaire.net/rest/bodies/${search}`
+    // "https://images-api.nasa.gov/search?q=mars&media_type=image";
 
     $.ajax({
       url: queryURL,
@@ -55,11 +57,29 @@ function renderPlanets() {
     console.log($(this).attr("id"));
     $("#sun").hide();
     $("#planets").hide();
-    //$("#fact-panel").show();
+    // $("#fact-panel").show();
 
-    $("#fact-panel").html(
-      "<h1>" + $(this).attr("id") + "</h1>\n<h2>It's a planet!</h2>"
-    );
+    $(".planetInfo").text($(this).attr("id"))
+
+    // $("#fact-panel").html(
+    //   "<h1>" + $(this).attr("id") + "</h1>\n<h2>It's a planet!</h2>"
+    // );
+    let planetFacts = $("#planetFacts")[0];
+
+    planetFacts.style.display = "block";
+
+    let span = $(".close")[0];
+    span.onclick = function() {
+        planetFacts.style.display = "none";
+        $("#sun").show();
+        $("#planets").show();
+      }
+
+    window.onclick = function(event) {
+      if (event.target == planetFacts) {
+        planetFacts.style.display = "none";
+      }
+    }
   });
 }
 
@@ -68,13 +88,9 @@ $("#planet-btn").on("click", function() {
   renderPlanets();
 });
 
-//Create a variable to easily be able to loop through all of the planets 
-let planetImages = $(".planet")
 
-//Pausing planets attempt 1 
-$("ul").filter(function() {
-  
-})
+
+
 
 // The API object contains methods for each kind of request we'll make
 var API = {
