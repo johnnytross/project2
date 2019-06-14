@@ -2,9 +2,7 @@
   line-height: 2.5;
 }
 
-h2{
-  font-family: 'Open Sans', sans-serif;
-}
+
 
 body {
 background-image: url(https://wi-images.condecdn.net/image/B1NZW376pxM/crop/1620/f/space_11.jpg); background-size: 100%;
@@ -149,3 +147,19 @@ h1 {
     transform: rotate(360deg) translateX(var(--push));
   }
 }
+
+
+
+/* -----------------------------------I N P U T  F O R M -------------------------------------- */
+
+.card-content{
+  background-color: lightgray;
+  opacity: .9;
+  
+}
+
+
+
+
+
+
