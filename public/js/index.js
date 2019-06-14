@@ -5,11 +5,12 @@ var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
 
 //Array of objects that each represent a planet and their relative size
+//, imageLink: "https://cdn.mos.cms.futurecdn.net/MTEiJvP99DScN3vkAsE9LA-320-80.jpg"
 var planets = [
-  { name: "Mercury", height: 20, width: 20 },
-  { name: "Venus", height: 22, width: 22 },
-  { name: "Earth", height: 30, width: 30 },
-  { name: "Mars", height: 25, width: 25 },
+  { name: "Mercury", height: 20, width: 20, imageLink: "https://cdn.mos.cms.futurecdn.net/MTEiJvP99DScN3vkAsE9LA-320-80.jpg" },
+  { name: "Venus", height: 22, width: 22, imageLink: "https://www.sciencenews.org/sites/default/files/2018/02/main/articles/020618_LG_venus-fobette_feat.jpg" },
+  { name: "Earth", height: 30, width: 30, imageLink: "https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg" },
+  { name: "Mars", height: 25, width: 25, imageLink: "https://upload.wikimedia.org/wikipedia/commons/0/02/OSIRIS_Mars_true_color.jpg" },
   { name: "Jupiter", height: 100, width: 100 },
   { name: "Saturn", height: 90, width: 90 },
   { name: "Uranus", height: 80, width: 80 },
@@ -44,7 +45,7 @@ function renderPlanets() {
   $(".planet").on("click", function() {
     let search = this.id;
     console.log("Planet/Sun: "+search);
-    var queryURL = `https://api.le-systeme-solaire.net/rest/bodies/${search}`
+    let queryURL = `https://api.le-systeme-solaire.net/rest/bodies/${search}`
     // "https://images-api.nasa.gov/search?q=mars&media_type=image";
 
     $.ajax({
@@ -53,6 +54,17 @@ function renderPlanets() {
     }).then(function(response) {
       console.log(response);
     });
+
+    let queryURL2 = `https://en.wikipedia.org/w/api.php?action=query&list=value&${search}`
+
+    $.ajax({
+      url: queryURL2,
+      method: "GET"
+    }).then(function(response) {
+      console.log(response);
+    });
+
+    
 
     console.log($(this).attr("id"));
     $("#sun").hide();
@@ -76,11 +88,11 @@ function renderPlanets() {
         $("#planets").show();
       }
 
-    window.onclick = function(event) {
-      if (event.target !== planetFacts && event.target !== planet) {
-        planetFacts.style.display = "none";
-      }
-    }
+    // window.onclick = function(event) {
+    //   if (event.target !== planetFacts && event.target !== planet) {
+    //     planetFacts.style.display = "none";
+    //   }
+    // }
   });
 }
 
