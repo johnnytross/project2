@@ -1,6 +1,7 @@
 var db = require("../models");
 
 module.exports = function(app) {
+  
   // Load index page
   app.get("/", function(req, res) {
     db.Example.findAll({}).then(function(dbExamples) {
@@ -10,6 +11,15 @@ module.exports = function(app) {
       });
     });
   });
+
+  //html route to the form page
+  app.get("/form", function(req, res) {
+    res.sendFile(path.join(__dirname, "../views/voyagerform.html"));
+    });
+
+    app.get("/tables", function(req, res) {
+      res.sendFile(path.join(__dirname, "../public/tables.html"));
+    });
 
   // Load example page and pass in an example by id
   app.get("/example/:id", function(req, res) {

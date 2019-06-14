@@ -59,12 +59,13 @@ function renderPlanets() {
     $("#planets").hide();
     // $("#fact-panel").show();
 
-    $(".planetInfo").text($(this).attr("id"))
+    $(".planetInfo").text("Planet name: "+$(this).attr("id"))
 
     // $("#fact-panel").html(
     //   "<h1>" + $(this).attr("id") + "</h1>\n<h2>It's a planet!</h2>"
     // );
     let planetFacts = $("#planetFacts")[0];
+    let planet = $("#planet")[0];
 
     planetFacts.style.display = "block";
 
@@ -76,7 +77,7 @@ function renderPlanets() {
       }
 
     window.onclick = function(event) {
-      if (event.target == planetFacts) {
+      if (event.target !== planetFacts && event.target !== planet) {
         planetFacts.style.display = "none";
       }
     }
