@@ -8,14 +8,14 @@ var $exampleList = $("#example-list");
 //, imageLink: "https://cdn.mos.cms.futurecdn.net/MTEiJvP99DScN3vkAsE9LA-320-80.jpg"
 var planets = [
   { name: "Mercury", height: 20, width: 20, imageLink: "https://cdn.mos.cms.futurecdn.net/MTEiJvP99DScN3vkAsE9LA-320-80.jpg" },
-  { name: "Venus", height: 22, width: 22, imageLink: "https://www.sciencenews.org/sites/default/files/2018/02/main/articles/020618_LG_venus-fobette_feat.jpg" },
-  { name: "Earth", height: 30, width: 30, imageLink: "https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg" },
-  { name: "Mars", height: 25, width: 25, imageLink: "https://upload.wikimedia.org/wikipedia/commons/0/02/OSIRIS_Mars_true_color.jpg" },
-  { name: "Jupiter", height: 100, width: 100 },
-  { name: "Saturn", height: 90, width: 90 },
-  { name: "Uranus", height: 80, width: 80 },
-  { name: "Neptune", height: 80, width: 80 },
-  { name: "Pluto", height: 15, width: 15 }
+  { name: "Venus", height: 22, width: 22, pageid: 12345 },
+  { name: "Earth", height: 30, width: 30, pageid: 12345 },
+  { name: "Mars", height: 25, width: 25, pageid: 12345 },
+  { name: "Jupiter", height: 100, width: 100, pageid: 12345 },
+  { name: "Saturn", height: 90, width: 90, pageid: 12345 },
+  { name: "Uranus", height: 80, width: 80, pageid: 12345 },
+  { name: "Neptune", height: 80, width: 80, pageid: 12345 },
+  { name: "Pluto", height: 15, width: 15, pageid: 12345 }
 ];
 
 //On load, hide the planets and the sun
@@ -45,6 +45,7 @@ function renderPlanets() {
   $(".planet").on("click", function() {
     let search = this.id;
     console.log("Planet/Sun: "+search);
+    //Solar system open data API
     let queryURL = `https://api.le-systeme-solaire.net/rest/bodies/${search}`
     // "https://images-api.nasa.gov/search?q=mars&media_type=image";
 
@@ -55,29 +56,39 @@ function renderPlanets() {
       console.log(response);
     });
 
-    let queryURL2 = `https://en.wikipedia.org/w/api.php?action=query&list=value&${search}`
+    //wikipedia API
+        var url2 = `http://en.wikipedia.org/w/api.php?action=query&prop=pageimages&format=json&piprop=original&titles=${search}&format=json&callback=?`
+        //`http://en.wikipedia.org/w/api.php?action=query&titles=sun&prop=images&&format=json&callback=?`
+        //`https://en.wikipedia.org/w/api.php?action=opensearch&search=${search}&format=json&callback=?`; 
+		    $.ajax({
+			url: url2,
+			type: 'GET',
+      contentType: "application/json; charset=utf-8",
+      //prop:'images',
+			async: false,
+        	dataType: "json",
+        	success: function(data, status, jqXHR) {
+        		console.log(data.query.pages);
+            let picture = data;
+            console.log("picture: " + picture);
 
-    $.ajax({
-      url: queryURL2,
-      method: "GET"
-    }).then(function(response) {
-      console.log(response);
-    });
-
+        	}
+        })
     
-
+    //console.log the name of whatever planet you clicked on, or the sun
     console.log($(this).attr("id"));
     $("#sun").hide();
     $("#planets").hide();
     // $("#fact-panel").show();
 
+    
     $(".planetInfo").text("Planet name: "+$(this).attr("id"))
+    $(".planetPicture").html(`<img src= alt=${search}></img>`)
 
     // $("#fact-panel").html(
     //   "<h1>" + $(this).attr("id") + "</h1>\n<h2>It's a planet!</h2>"
     // );
     let planetFacts = $("#planetFacts")[0];
-    let planet = $("#planet")[0];
 
     planetFacts.style.display = "block";
 
@@ -87,12 +98,6 @@ function renderPlanets() {
         $("#sun").show();
         $("#planets").show();
       }
-
-    // window.onclick = function(event) {
-    //   if (event.target !== planetFacts && event.target !== planet) {
-    //     planetFacts.style.display = "none";
-    //   }
-    // }
   });
 }
 
