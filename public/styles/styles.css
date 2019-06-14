@@ -115,13 +115,83 @@ h1 {
 /* -----------------------------------I N P U T  F O R M -------------------------------------- */
 
 .card-content{
-  background-color: lightgray;
-  opacity: .9;
-  
+  background-color: rgba(0,0,0,.1);
 }
 
 
+.card{
+  margin-top: 50px;
+  background-color: rgba(0,0,0,.6);
+}
+
+[type="checkbox"].filled-in:checked+span:not(.lever):after {
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #0d47a1;
+  background-color: #0d47a1;
+  z-index: 0;
+}
+
+.card .card-action {
+  background-color: inherit;
+  opacity: .7;
+  border-top: 1px solid rgba(160,160,160,0.2);
+  position: relative;
+  padding: 16px 24px;
+}
+
+.dropdown-content li>a, .dropdown-content li>span {
+    font-size: 16px;
+    color: #ffffff;
+     
+    display: block;
+    line-height: 22px;
+    padding: 14px 16px;
+}
+
+.dropdown-content {
+  background-color: rgba(5, 5, 5, .9);
+  margin: 0;
+  display: none;
+  min-width: 100px;
+  overflow-y: auto;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 9999;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+
+input#username{
+  background-color: rgba(0,0,0,.6);
+}
+
+.select-wrapper input.select-dropdown {
+  color: lightgrey;
+  position: relative;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #9e9e9e;
+  outline: none;
+  height: 3rem;
+  line-height: 3rem;
+  width: 100%;
+  font-size: 16px;
+  margin: 0 0 8px 0;
+  padding: 0;
+  display: block;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  z-index: 1;
+}
 
 
-
-
+input#username {
+  background-color: rgba(0,0,0,.6);
+}
