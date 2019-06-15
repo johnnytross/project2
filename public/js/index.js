@@ -109,8 +109,8 @@ function renderPlanets() {
     console.log($(this).attr("id"));
 
     //hide planets after you click on a planet, and only show the modal
-    $("#sun").hide();
-    $("#planets").hide();
+    // $("#sun").hide();
+    // $("#planets").hide();
     
     $(".planetHeader").html($(this).attr("id"));
     //Add text to the modal as well as a picture
