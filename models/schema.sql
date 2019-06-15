@@ -1,3 +1,4 @@
-DROP DATABASE IF EXISTS voyagerdb;
-CREATE DATABASE voyagerdb;
+
+
+
 
