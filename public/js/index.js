@@ -57,6 +57,18 @@ function renderPlanets() {
       "<h1>" + $(this).attr("id") + "</h1>\n<h2>It's a planet!</h2>"
     );
   });
+
+  $("#pause").on("click", function(){
+    console.log("hi");
+
+    if ($(".planet").attr("style") !== "animation-play-state: paused;") {
+      $(".planet").attr("style", "animation-play-state: paused;");
+      $("#pause").text(">");
+    } else {
+      $(".planet").attr("style", "animation-play-state: running;");
+      $("#pause").text("||");
+    }
+  });
 }
 
 $("#planet-btn").on("click", function() {
