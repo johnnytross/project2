@@ -19,10 +19,12 @@ var planets = [
 ];
 
 //On load, hide the planets and the sun
-$(window).on("load", function() {
+$(window).on("load", function () {
   $("#planet-div").hide();
   $("#sun").hide();
 });
+
+
 
 //Function that hides the header and buttons on front page, shows the sun and planets 
 function renderPlanets() {
@@ -42,16 +44,16 @@ function renderPlanets() {
   }
 
   //Once you click a planet or the sun, console log the response from the API URL and hide the planets and the sun
-  $(".planet").on("click", function() {
+  $(".planet").on("click", function () {
     let search = this.id;
-    console.log("Planet/Sun: "+search);
+    console.log("Planet/Sun: " + search);
     let queryURL = `https://api.le-systeme-solaire.net/rest/bodies/${search}`
     // "https://images-api.nasa.gov/search?q=mars&media_type=image";
 
     $.ajax({
       url: queryURL,
       method: "GET"
-    }).then(function(response) {
+    }).then(function (response) {
       console.log(response);
     });
 
@@ -60,18 +62,18 @@ function renderPlanets() {
     $.ajax({
       url: queryURL2,
       method: "GET"
-    }).then(function(response) {
+    }).then(function (response) {
       console.log(response);
     });
 
-    
+
 
     console.log($(this).attr("id"));
     $("#sun").hide();
     $("#planets").hide();
     // $("#fact-panel").show();
 
-    $(".planetInfo").text("Planet name: "+$(this).attr("id"))
+    $(".planetInfo").text("Planet name: " + $(this).attr("id"))
 
     // $("#fact-panel").html(
     //   "<h1>" + $(this).attr("id") + "</h1>\n<h2>It's a planet!</h2>"
@@ -82,11 +84,11 @@ function renderPlanets() {
     planetFacts.style.display = "block";
 
     let span = $(".close")[0];
-    span.onclick = function() {
-        planetFacts.style.display = "none";
-        $("#sun").show();
-        $("#planets").show();
-      }
+    span.onclick = function () {
+      planetFacts.style.display = "none";
+      $("#sun").show();
+      $("#planets").show();
+    }
 
     // window.onclick = function(event) {
     //   if (event.target !== planetFacts && event.target !== planet) {
@@ -97,17 +99,31 @@ function renderPlanets() {
 }
 
 //When a user clicks take a trip, call the renderPlants function
-$("#planet-btn").on("click", function() {
+$("#planet-btn").on("click", function () {
   renderPlanets();
 });
 
+$("#submitform").on("click", function () {
+  console.log("submitted")
+
+});
+
+$("#username").on("click", function () {
+  console.log("user name submitted")
+
+});
+
+$("#return-trip").on("click", function () {
+  console.log("return-trip selectect yes or no")
+
+});
 
 
 
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(example) {
+  saveExample: function (example) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
@@ -117,13 +133,13 @@ var API = {
       data: JSON.stringify(example)
     });
   },
-  getExamples: function() {
+  getExamples: function () {
     return $.ajax({
       url: "api/examples",
       type: "GET"
     });
   },
-  deleteExample: function(id) {
+  deleteExample: function (id) {
     return $.ajax({
       url: "api/examples/" + id,
       type: "DELETE"
@@ -132,9 +148,9 @@ var API = {
 };
 
 // refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
+var refreshExamples = function () {
+  API.getExamples().then(function (data) {
+    var $examples = data.map(function (example) {
       var $a = $("<a>")
         .text(example.text)
         .attr("href", "/example/" + example.id);
@@ -162,7 +178,7 @@ var refreshExamples = function() {
 
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
-var handleFormSubmit = function(event) {
+var handleFormSubmit = function (event) {
   event.preventDefault();
 
   var example = {
@@ -175,7 +191,7 @@ var handleFormSubmit = function(event) {
     return;
   }
 
-  API.saveExample(example).then(function() {
+  API.saveExample(example).then(function () {
     refreshExamples();
   });
 
@@ -185,12 +201,12 @@ var handleFormSubmit = function(event) {
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function() {
+var handleDeleteBtnClick = function () {
   var idToDelete = $(this)
     .parent()
     .attr("data-id");
 
-  API.deleteExample(idToDelete).then(function() {
+  API.deleteExample(idToDelete).then(function () {
     refreshExamples();
   });
 };

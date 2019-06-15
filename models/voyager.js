@@ -4,18 +4,18 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [1]
+        len: [1,50]
       }
     },
     space_craft: {
       type: DataTypes.STRING,
       allowNull: false,
-      len: [1]
+      len: [1,50]
     },
     planet: {
       type: DataTypes.STRING,
       allowNull: false,
-      len: [1]
+      len: [1,50]
     },
     return_trip: {
       type: DataTypes.BOOLEAN,

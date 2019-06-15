@@ -5,10 +5,10 @@ module.exports = function (app) {
   // Load index page
   app.get("/", function (req, res) {
     //sequelize findAll to select * from DB
-    db.Example.findAll({}).then(function (dbExamples) {
+    db.Voyager.findAll({}).then(function (dbVoyager) {
       res.render("index", {
         msg: "Welcome!",
-        examples: dbExamples
+        voyager: dbVoyager
       });
     });
   });
