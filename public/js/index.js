@@ -3,11 +3,11 @@ var $exampleText = $("#example-text");
 var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
-//fixed
+//fixed changes
 
 //Array of objects that each represent a planet and their relative size
 var planets = [
-  { name: "Mercury", height: 20, width: 20, imageLink: "https://cdn.mos.cms.futurecdn.net/MTEiJvP99DScN3vkAsE9LA-320-80.jpg"},
+  { name: "Mercury", height: 20, width: 20, imageLink: "https://cdn.mos.cms.futurecdn.net/MTEiJvP99DScN3vkAsE9LA-320-80.jpg" },
   { name: "Venus", height: 22, width: 22 },
   { name: "Earth", height: 30, width: 30 },
   { name: "Mars", height: 25, width: 25 },
@@ -56,99 +56,103 @@ function renderPlanets() {
     $.ajax({
       url: queryURL,
       method: "GET"
-    }).then(function(response) {
+    }).then(function (response) {
 
       // g/cm³ is gram per cubic centimeter, a unit of measurement for density
-      if (search != "sun"){
-      let density = response.density;
-      $(".planetInfo").append("Planet density: "+density+" g/cm³<br>");
+      if (search != "sun") {
+        let density = response.density;
+        $(".planetInfo").append("Planet density: " + density + " g/cm³<br>");
       };
-      
+
       // m/s² is metre per second squared, a unit of measurement for gravity
-      if (search != "sun"){
-      let gravity = response.gravity;
-      $(".planetInfo").append("Gravity: "+gravity+" m/s²<br>");
+      if (search != "sun") {
+        let gravity = response.gravity;
+        $(".planetInfo").append("Gravity: " + gravity + " m/s²<br>");
       };
 
-      
+
       let massEx = response.mass.massExponent;
-      $(".planetInfo").append("Mass exponent: "+massEx+"<br>");
+      $(".planetInfo").append("Mass exponent: " + massEx + "<br>");
 
-     
+
       let massVal = response.mass.massValue;
-      $(".planetInfo").append("Mass value: "+massVal+"<br>");
+      $(".planetInfo").append("Mass value: " + massVal + "<br>");
 
-      if (search != "sun"){
-        
+      if (search != "sun") {
+
         let moons = (response.moons).length;
-        $(".planetInfo").append("Moons: "+moons+"<br>");
+        $(".planetInfo").append("Moons: " + moons + "<br>");
       };
-      
-      
+
+
     });
 
     //wikipedia API
-        var url2 = `http://en.wikipedia.org/w/api.php?action=query&prop=pageimages&format=json&piprop=original&titles=${search}&format=json&callback=?`
-        //`http://en.wikipedia.org/w/api.php?action=query&titles=sun&prop=images&&format=json&callback=?`
-        //`https://en.wikipedia.org/w/api.php?action=opensearch&search=${search}&format=json&callback=?`; 
-		    $.ajax({
-			url: url2,
-			type: 'GET',
+    var url2 = `http://en.wikipedia.org/w/api.php?action=query&prop=pageimages&format=json&piprop=original&titles=${search}&format=json&callback=?`
+    //`http://en.wikipedia.org/w/api.php?action=query&titles=sun&prop=images&&format=json&callback=?`
+    //`https://en.wikipedia.org/w/api.php?action=opensearch&search=${search}&format=json&callback=?`; 
+    $.ajax({
+      url: url2,
+      type: 'GET',
       contentType: "application/json; charset=utf-8",
       //prop:'images',
-			async: false,
-        	dataType: "json",
-        	success: function(data, status, jqXHR) {
-            
-            
-            
+      async: false,
+      dataType: "json",
+      success: function (data, status, jqXHR) {
 
-        	}
-        })
-    
+
+
+
+      }
+    })
+
     //console.log the name of whatever planet you clicked on, or the sun
     console.log($(this).attr("id"));
 
     //hide planets after you click on a planet, and only show the modal
+
+
+
     // $("#sun").hide();
     // $("#planets").hide();
     
+
     $(".planetHeader").html($(this).attr("id"));
     //Add text to the modal as well as a picture
-    $(".planetInfo").html("Planet name: "+$(this).attr("id")+"<br>")
+    $(".planetInfo").html("Planet name: " + $(this).attr("id") + "<br>")
 
     //switch statement 
-        switch ($(this).attr("id")){
-          case "Jupiter":
-            source = "https://wwwcache.wral.com/asset/weather/2019/06/10/18443440/jupiter-DMID1-5j3gkbsm3-593x593.jpg";
-          break;
-          case "Mercury":
-            source = "https://lh3.googleusercontent.com/kWUcoBpFqezXmWxYEWEXafacRP8D9y4d1jFEiKzWbJFim7dxWK11Knkedz8LdlxJa9YZOx6ihz4N2J3X260b_roxRXgd0Q=s750";
-          break;
-          case "Venus":
-            source = "https://i0.wp.com/sphereandsundry.com/wp-content/uploads/2018/08/24771639777_c053614594_b.jpg?resize=450%2C448&ssl=1";
-          break;
-          case "Earth":
-            source = "https://amp.businessinsider.com/images/5afd808f1ae66234008b466b-750-563.jpg";
-          break;
-          case "Mars":
-            source = "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/illustration-of-mars-royalty-free-illustration-1124672049-1560262042.jpg?crop=0.563xw:1.00xh;0.220xw,0&resize=640:*";
-          break;
-          case "Saturn":
-            source = "https://nationalpostcom.files.wordpress.com/2019/01/NY457-AP.jpg?quality=80&strip=all&w=780";
-          break;
-          case "Uranus": 
-            source = "https://upload.wikimedia.org/wikipedia/commons/3/3d/Uranus2.jpg";
-          break;
-          case "Neptune":
-            source = "https://www.nasa.gov/sites/default/files/thumbnails/image/neptune_voyager1.jpg";
-          break;
-          case "Pluto":
-            source = "https://spaceplace.nasa.gov/review/ice-dwarf/pluto_new_horizons.en.png";
-          break;
-          default:
-            source = "https://cdn.images.express.co.uk/img/dynamic/151/590x/worldwide-617284.jpg";
-        }
+    switch ($(this).attr("id")) {
+      case "Jupiter":
+        source = "https://wwwcache.wral.com/asset/weather/2019/06/10/18443440/jupiter-DMID1-5j3gkbsm3-593x593.jpg";
+        break;
+      case "Mercury":
+        source = "https://lh3.googleusercontent.com/kWUcoBpFqezXmWxYEWEXafacRP8D9y4d1jFEiKzWbJFim7dxWK11Knkedz8LdlxJa9YZOx6ihz4N2J3X260b_roxRXgd0Q=s750";
+        break;
+      case "Venus":
+        source = "https://i0.wp.com/sphereandsundry.com/wp-content/uploads/2018/08/24771639777_c053614594_b.jpg?resize=450%2C448&ssl=1";
+        break;
+      case "Earth":
+        source = "https://amp.businessinsider.com/images/5afd808f1ae66234008b466b-750-563.jpg";
+        break;
+      case "Mars":
+        source = "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/illustration-of-mars-royalty-free-illustration-1124672049-1560262042.jpg?crop=0.563xw:1.00xh;0.220xw,0&resize=640:*";
+        break;
+      case "Saturn":
+        source = "https://nationalpostcom.files.wordpress.com/2019/01/NY457-AP.jpg?quality=80&strip=all&w=780";
+        break;
+      case "Uranus":
+        source = "https://upload.wikimedia.org/wikipedia/commons/3/3d/Uranus2.jpg";
+        break;
+      case "Neptune":
+        source = "https://www.nasa.gov/sites/default/files/thumbnails/image/neptune_voyager1.jpg";
+        break;
+      case "Pluto":
+        source = "https://spaceplace.nasa.gov/review/ice-dwarf/pluto_new_horizons.en.png";
+        break;
+      default:
+        source = "https://cdn.images.express.co.uk/img/dynamic/151/590x/worldwide-617284.jpg";
+    }
 
     // console.log("density: " + density);
     $(".planetPicture").html(`<img src=${source} alt=${search} height="200" width="250"></img>`)
@@ -162,14 +166,14 @@ function renderPlanets() {
 
     let span = $(".close")[0];
 
-    span.onclick = function() {
-        planetFacts.style.display = "none";
-        $("#sun").show();
-        $("#planets").show();
-      }
+    span.onclick = function () {
+      planetFacts.style.display = "none";
+      $("#sun").show();
+      $("#planets").show();
+    }
   });
 
-  $("#pause").on("click", function(){
+  $("#pause").on("click", function () {
     console.log("hi");
 
     if ($(".planet").attr("style") !== "animation-play-state: paused;") {
@@ -187,20 +191,45 @@ $("#planet-btn").on("click", function () {
   renderPlanets();
 });
 
+// var a = $("select[name='duration'] option:selected").text();
+// var b = $("select[name='duration'] option:selected").val();
+
 $("#submitform").on("click", function () {
-  console.log("submitted")
+  const username = $("#username").val()
+  const choose_planet = $("select[name='chooseplanet'] option:selected").val()
+  const choose_spacecraft = $("select[name='choosespacecraft'] option:selected").val()
+  let checkbox = false
+  if ($('#returnTrip').is(":checked")) {
+    checkbox = true
+  } else {
+    checkbox = false
+  }
+  const myObject = {
+    astronaut: username,
+    space_craft: choose_spacecraft,
+    planet: choose_planet,
+    return_trip: checkbox,
+  }
+
+  $.ajax({
+    url: '/api/voyager',
+    type: 'POST',
+    data: myObject
+  }).then(function (res) {
+    console.log('post route')
+    // console.log(res)
+    window.location.href = '/allvoyages'
+  })
+  // $('#returnTrip:checked').val();
+  console.log(checkbox)
+  console.log(username)
+  console.log(choose_planet)
+  console.log(choose_spacecraft)
 
 });
 
-$("#username").on("click", function () {
-  console.log("user name submitted")
 
-});
 
-$("#return-trip").on("click", function () {
-  console.log("return-trip selectect yes or no")
-
-});
 
 
 

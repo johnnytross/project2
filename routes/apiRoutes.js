@@ -10,8 +10,12 @@ module.exports = function (app) {
 
   // Create a new example
   app.post("/api/voyager", function (req, res) {
+    console.log('post voyage')
     db.Voyager.create(req.body).then(function (dbVoyager) {
-      res.json(dbVoyager);
+      console.log("posted")
+      // console.log(dbVoyager)
+      // res.json(dbVoyager);
+      res.redirect('/allvoyages')
     });
   });
 
