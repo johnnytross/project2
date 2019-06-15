@@ -2,8 +2,8 @@
   "development": {
     "username": "root",
     "password": "docker",
-   
-    "host": "localhost",
+    "database": "voyager_db",
+    "host": "192.168.99.100",
     "dialect": "mysql"
   },
   "test": {
