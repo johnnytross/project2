@@ -7,7 +7,7 @@ module.exports = function (sequelize, DataTypes) {
         len: [1]
       }
     },
-    spacecraft: {
+    space_craft: {
       type: DataTypes.STRING,
       allowNull: false,
       len: [1]
