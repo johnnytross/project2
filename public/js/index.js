@@ -96,7 +96,7 @@ function renderPlanets() {
   });
 
   $("#pause").on("click", function(){
-    console.log("hi");
+   // console.log("hi");
 
     if ($(".planet").attr("style") !== "animation-play-state: paused;") {
       $(".planet").attr("style", "animation-play-state: paused;");

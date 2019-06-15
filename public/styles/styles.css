@@ -65,7 +65,12 @@ h1 {
 #pause {
 color: white;
 position: sticky;
-top: 1000px;
+float: right;
+}
+
+#pause:hover {
+  background-color: antiquewhite;
+  color: navy;
 }
 
 #fact-panel {
