@@ -7,7 +7,7 @@ var $exampleList = $("#example-list");
 //Array of objects that each represent a planet and their relative size
 //, imageLink: "https://cdn.mos.cms.futurecdn.net/MTEiJvP99DScN3vkAsE9LA-320-80.jpg"
 var planets = [
-  { name: "Mercury", height: 20, width: 20, imageLink: "https://cdn.mos.cms.futurecdn.net/MTEiJvP99DScN3vkAsE9LA-320-80.jpg" },
+  { name: "Mercury", height: 20, width: 20, imageLink: "https://cdn.mos.cms.futurecdn.net/MTEiJvP99DScN3vkAsE9LA-320-80.jpg", pageid: 19007 },
   { name: "Venus", height: 22, width: 22, pageid: 12345 },
   { name: "Earth", height: 30, width: 30, pageid: 12345 },
   { name: "Mars", height: 25, width: 25, pageid: 12345 },
@@ -44,7 +44,8 @@ function renderPlanets() {
   //Once you click a planet or the sun, console log the response from the API URL and hide the planets and the sun
   $(".planet").on("click", function() {
     let search = this.id;
-    console.log("Planet/Sun: "+search);
+    let page = planets[0].pageid;
+    
     //Solar system open data API
     let queryURL = `https://api.le-systeme-solaire.net/rest/bodies/${search}`
     // "https://images-api.nasa.gov/search?q=mars&media_type=image";
@@ -53,8 +54,11 @@ function renderPlanets() {
       url: queryURL,
       method: "GET"
     }).then(function(response) {
-      console.log(response);
+      //console.log(response);
     });
+
+
+    
 
     //wikipedia API
         var url2 = `http://en.wikipedia.org/w/api.php?action=query&prop=pageimages&format=json&piprop=original&titles=${search}&format=json&callback=?`
@@ -68,15 +72,15 @@ function renderPlanets() {
 			async: false,
         	dataType: "json",
         	success: function(data, status, jqXHR) {
-        		console.log(data.query.pages);
+            console.log(data.query.pages);
             let picture = data;
-            console.log("picture: " + picture);
+            //console.log("picture: " + picture);
 
         	}
         })
     
     //console.log the name of whatever planet you clicked on, or the sun
-    console.log($(this).attr("id"));
+    //console.log($(this).attr("id"));
     $("#sun").hide();
     $("#planets").hide();
     // $("#fact-panel").show();
