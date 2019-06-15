@@ -6,7 +6,20 @@ module.exports = function (app) {
   app.get("/", function (req, res) {
     //sequelize findAll to select * from DB
     db.Voyager.findAll({}).then(function (dbVoyager) {
+      console.log(dbVoyager)
       res.render("index", {
+        msg: "Welcome!",
+        voyager: dbVoyager
+      });
+    });
+  });
+
+  app.get("/allvoyages", function (req, res) {
+    console.log('all voyages')
+    //sequelize findAll to select * from DB
+    db.Voyager.findAll({}).then(function (dbVoyager) {
+      console.log(dbVoyager)
+      res.render("example", {
         msg: "Welcome!",
         voyager: dbVoyager
       });
