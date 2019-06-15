@@ -14,10 +14,10 @@ background-image: url(https://wi-images.condecdn.net/image/B1NZW376pxM/crop/1620
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  padding-top: 0px; /* Location of the box */
   left: 0;
   top: 0;
-  width: 20%; /* Full width */
+  width: 60%; /* Full width */
   height: auto; /* Full height */
   overflow: auto; /* Enable scroll if needed */
   background-color: lightgray;
@@ -44,6 +44,7 @@ background-image: url(https://wi-images.condecdn.net/image/B1NZW376pxM/crop/1620
 .close {
   color: #aaaaaa;
   float: right;
+  top: 50px;
   font-size: 28px;
   font-weight: bold;
 }
