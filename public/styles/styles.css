@@ -9,14 +9,15 @@ background-image: url(https://wi-images.condecdn.net/image/B1NZW376pxM/crop/1620
 
 }
 
-#page-mask {
+/* can be used to darken the whole page or just the background */
+/* #page-mask {
   position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
   top: 0;
   background-color: rgba(0,0,0,0.6);
-}
+} */
 
 /* ----------------------------------- M O D A L -------------------------------------- */
 .modal {
@@ -31,7 +32,7 @@ background-image: url(https://wi-images.condecdn.net/image/B1NZW376pxM/crop/1620
   width: 30%; /* Full width */
   height: auto; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgba(0,0,0,.6);
+  background-color: rgba(0,0,0,.8);
   opacity: .8;
   color: white;
 }

@@ -22,6 +22,7 @@ var planets = [
 $(window).on("load", function () {
   $("#planet-div").hide();
   $("#sun").hide();
+  
 });
 
 
