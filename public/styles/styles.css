@@ -17,15 +17,15 @@ background-image: url(https://wi-images.condecdn.net/image/B1NZW376pxM/crop/1620
   padding-top: 100px; /* Location of the box */
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
+  width: 20%; /* Full width */
+  height: auto; /* Full height */
   overflow: auto; /* Enable scroll if needed */
   background-color: lightgray;
-  opacity: .9;
+  opacity: .8;
 }
 
 .modal-header {
-  padding: 2px 16px;
+  padding: 12px 18px;
   background-color: teal;
   color: white;
   
