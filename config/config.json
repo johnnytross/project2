@@ -1,6 +1,5 @@
 {
-  "development": {
-    "username": "root",
+ "development": {    "username": "root",
     "password": "docker",
     "database": "voyager_db",
     "host": "192.168.99.100",
