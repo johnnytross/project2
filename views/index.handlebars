@@ -18,15 +18,18 @@
   <div id="front-page" class="container center white-text">
     <div class="section">
       <div class="row">
-        <a class="btn-floating pulse #1565c0 teal lighten-3" href="#"></a> VIEW YOUR DESTINATION
+        <a class="btn-floating pulse #1565c0 teal lighten-3" href="/form"></a> VIEW YOUR DESTINATION
       </div>
     </div>
 
+    {{!-- show the planets to the user, which will orbit around the sun --}}
     <div class="row">
       <div class="section">
         <a class="btn-floating pulse btn-large #1565c0 blue lighten-1" id="planet-btn" href="#"></a> TAKE A TRIP
       </div>
     </div>
+
+  
 
   </div>
 
@@ -35,6 +38,20 @@
     <div id="planets"></div>
     <button class="waves-effect waves-teal btn-flat" id="pause">||</button>
   </div>
+
+
+
+<!-- The Modal -->
+<div id="planetFacts" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div class="planetPicture"></div>
+    <div class="planetInfo"></div>
+  </div>
+
+</div>
 
   <!-- <div class="container center white-text">
 
