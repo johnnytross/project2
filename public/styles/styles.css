@@ -9,6 +9,7 @@ background-image: url(https://wi-images.condecdn.net/image/B1NZW376pxM/crop/1620
 
 }
 
+/* ----------------------------------- M O D A L -------------------------------------- */
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -16,21 +17,28 @@ background-image: url(https://wi-images.condecdn.net/image/B1NZW376pxM/crop/1620
   padding-top: 100px; /* Location of the box */
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
+  width: 20%; /* Full width */
+  height: auto; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background-color: lightgray;
+  opacity: .8;
+}
+
+.modal-header {
+  padding: 12px 18px;
+  background-color: teal;
+  color: white;
+  
 }
 
 /* Modal Content */
-.modal-content {
-  background-color: #fefefe;
+/* .modal-content {
   margin: auto;
   padding: 20px;
-  border: 1px solid #888;
   width: 80%;
-}
+  background-color: white;
+  opacity: .9;
+} */
 
 /* The Close Button */
 .close {
@@ -47,6 +55,30 @@ background-image: url(https://wi-images.condecdn.net/image/B1NZW376pxM/crop/1620
   cursor: pointer;
 }
 
+
+
+/* ----------------------------------- M I S C -------------------------------------- */
+h1 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: green;
+  font-size: 100px;
+}
+
+#pause {
+color: white;
+position: sticky;
+top: 1000px;
+}
+
+#fact-panel {
+    background-color: aquamarine;
+    padding: 50px;
+    height: 500px;
+}
+
+/* ----------------------------------- P L A N E T S -------------------------------------- */
+
+
 .planet {
   position: absolute;
   width: var(--size);
@@ -54,17 +86,6 @@ background-image: url(https://wi-images.condecdn.net/image/B1NZW376pxM/crop/1620
   top: calc(50% - var(--size) / 2);
   left: calc(50% - var(--size) / 2);
   border-radius: 50%;
-}
-
-h1 {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: green;
-  font-size: 100px;
-}
-#fact-panel {
-    background-color: aquamarine;
-    padding: 50px;
-    height: 500px;
 }
 
 #sun {
