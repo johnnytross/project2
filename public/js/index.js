@@ -49,7 +49,7 @@ function renderPlanets() {
     let search = this.id;
     console.log("Planet/Sun: " + search);
 
-    let queryURL = `https://api.le-systeme-solaire.net/rest/bodies/${search}`
+    let queryURL = `https://api.le-systeme-solaire.net/rest/bodies/${search}`;
     // "https://images-api.nasa.gov/search?q=mars&media_type=image";
 
     $.ajax({
