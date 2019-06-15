@@ -61,6 +61,13 @@ h1 {
   color: green;
   font-size: 100px;
 }
+
+#pause {
+color: white;
+position: sticky;
+top: 1000px;
+}
+
 #fact-panel {
     background-color: aquamarine;
     padding: 50px;

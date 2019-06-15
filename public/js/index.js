@@ -94,6 +94,18 @@ function renderPlanets() {
     //   }
     // }
   });
+
+  $("#pause").on("click", function(){
+    console.log("hi");
+
+    if ($(".planet").attr("style") !== "animation-play-state: paused;") {
+      $(".planet").attr("style", "animation-play-state: paused;");
+      $("#pause").text(">");
+    } else {
+      $(".planet").attr("style", "animation-play-state: running;");
+      $("#pause").text("||");
+    }
+  });
 }
 
 //When a user clicks take a trip, call the renderPlants function
