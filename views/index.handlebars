@@ -34,9 +34,11 @@
 
   </div>
 
+{{!-- Divs where the CSS planets and the sun are created at  --}}
   <div id="planet-div">
     <div class="planet" id="sun"></div>
     <div id="planets"></div>
+    {{!-- a play/pause button because clicking moving planets is difficult --}}
     <button class="waves-effect waves-teal btn-flat" id="pause">||</button>
   </div>
 
@@ -53,11 +55,12 @@
 
     <div class="modal-content">
 
-
+      {{!-- Display planet picture on top and planet info below --}}
       <div class="planetPicture"></div>
       <div class="planetInfo"></div>
       <br>
-      <a href="/form">Click here to fill out form</a>
+      {{!-- links to fill out a trip form or to see past trips already booked --}}
+      <a href="/form">Click here to fill out form</a> | <a href="/allvoyages">Click here to see past trips</a>
 
     </div>
 
