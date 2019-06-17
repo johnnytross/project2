@@ -83,6 +83,8 @@ h1 {
 color: white;
 position: sticky;
 float: right;
+font-family: 'Courier New', Courier, monospace;
+font-weight: bold;
 }
 
 #pause:hover {
@@ -152,29 +154,29 @@ float: right;
 
 #Saturn {
   --size: 45px;
-  --push: 320px;
-  background-image: linear-gradient(rgb(255, 153, 0), yellow);
+  --push: 330px;
+  background-image: linear-gradient(rgb(255, 153, 0), brown, yellow);
   animation: orbit 50s infinite linear;
 }
 
 
 #Uranus {
   --size: 30px;
-  --push: 360px;
+  --push: 375px;
   background-image: radial-gradient(turquoise, whitesmoke);
   animation: orbit 60s infinite linear;
 }
 
 #Neptune {
   --size: 30px;
-  --push: 400px;
+  --push: 420px;
   background-image: radial-gradient(turquoise,grey);
   animation: orbit 70s infinite linear;
 }
 
 #Pluto {
   --size: 5px;
-  --push: 460px;
+  --push: 470px;
   background-image: radial-gradient(turquoise,grey);
   animation: orbit 87s infinite linear;
 }
