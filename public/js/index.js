@@ -7,10 +7,10 @@ var $exampleList = $("#example-list");
 
 //Array of objects that each represent a planet and their relative size
 var planets = [
-  { name: "Mercury", height: 20, width: 20, imageLink: "https://cdn.mos.cms.futurecdn.net/MTEiJvP99DScN3vkAsE9LA-320-80.jpg" },
+  { name: "Mercury", height: 20, width: 20, distance: 1},
   { name: "Venus", height: 22, width: 22 },
   { name: "Earth", height: 30, width: 30 },
-  { name: "Mars", height: 25, width: 25 },
+  { name: "Mars", height: 25, width: 25, distance: 33.9},
   { name: "Jupiter", height: 100, width: 100 },
   { name: "Saturn", height: 90, width: 90 },
   { name: "Uranus", height: 80, width: 80 },
@@ -88,9 +88,12 @@ function renderPlanets() {
     });
 
     //wikipedia API
-    var url2 = `http://en.wikipedia.org/w/api.php?action=query&prop=pageimages&format=json&piprop=original&titles=${search}&format=json&callback=?`
-    //`http://en.wikipedia.org/w/api.php?action=query&titles=sun&prop=images&&format=json&callback=?`
-    //`https://en.wikipedia.org/w/api.php?action=opensearch&search=${search}&format=json&callback=?`; 
+    var url2 = `http://en.wikipedia.org/w/api.php?action=query&titles=sun&format=jsonfm&format=json&callback=?`
+    // `http://en.wikipedia.org/w/api.php?action=query&search=${search}&format=json&callback=?`
+    //`https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${search}&format=json&callback=?`; 
+    
+    
+    
     $.ajax({
       url: url2,
       type: 'GET',
@@ -100,7 +103,7 @@ function renderPlanets() {
       dataType: "json",
       success: function (data, status, jqXHR) {
 
-
+        console.log(this);
 
 
       }
