@@ -89,7 +89,7 @@ function renderPlanets() {
     });
 
     //wikipedia API
-    var url2 = `http://en.wikipedia.org/w/api.php?action=query&titles=sun&format=jsonfm&format=json&callback=?`
+    var url2 = `http://en.wikipedia.org/w/api.php?action=query&titles=sun&format=json&callback=?`
     // `http://en.wikipedia.org/w/api.php?action=query&search=${search}&format=json&callback=?`
     //`https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${search}&format=json&callback=?`; 
     

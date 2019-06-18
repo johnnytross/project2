@@ -2,13 +2,6 @@
   line-height: 2.5;
 }
 
-
-
-/* body {
-background-image: url(https://wi-images.condecdn.net/image/B1NZW376pxM/crop/1620/f/space_11.jpg); background-size: 100%;
-
-} */
-
 html { 
   background: url(https://wi-images.condecdn.net/image/B1NZW376pxM/crop/1620/f/space_11.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
@@ -16,16 +9,6 @@ html {
   -o-background-size: cover;
   background-size: cover;
 }
-
-/* can be used to darken the whole page or just the background */
-/* #page-mask {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  background-color: rgba(0,0,0,0.6);
-} */
 
 /* ----------------------------------- M O D A L -------------------------------------- */
 .modal {
@@ -40,7 +23,7 @@ html {
   top: 0;
   width: 40%; /* Full width */
   height: auto; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
+  overflow: visible; /* Enable scroll if needed */
   background-color: rgba(0,0,0,.8);
   opacity: .8;
   color: white;
@@ -54,15 +37,6 @@ html {
   color: white;
   
 }
-
-/* Modal Content */
-/* .modal-content {
-  margin: auto;
-  padding: 20px;
-  width: 80%;
-  background-color: white;
-  opacity: .9;
-} */
 
 /* The Close Button */
 .close {
