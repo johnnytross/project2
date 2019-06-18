@@ -45,14 +45,10 @@ function renderPlanets() {
     let search = this.id;
     console.log("Planet/Sun: " + search);
 
-<<<<<<< HEAD
     //Show the planets card once a planet is clicked on
     $(".planetCard").show();
 
     let queryURL = `https://api.le-systeme-solaire.net/rest/bodies/${search}`
-=======
-    let queryURL = `https://api.le-systeme-solaire.net/rest/bodies/${search}`;
->>>>>>> master
     // "https://images-api.nasa.gov/search?q=mars&media_type=image";
 
     $.ajax({
