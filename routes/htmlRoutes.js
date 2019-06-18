@@ -19,7 +19,7 @@ module.exports = function (app) {
     //sequelize findAll to select * from DB
     db.Voyager.findAll({ order: [['createdAt', 'DESC']], limit: 10 }).then(function (dbVoyager) {
       console.log(dbVoyager)
-      res.render("example", {
+      res.render("voyager", {
         msg: "Welcome!",
         voyager: dbVoyager
       });
@@ -30,7 +30,7 @@ module.exports = function (app) {
   app.get("/form", function (req, res) {
     res.render("voyagerform");
   });
-  
+
   // Render 404 page for any unmatched routes
   app.get("*", function (req, res) {
     res.render("404");
