@@ -7,15 +7,16 @@ var $exampleList = $("#example-list");
 
 //Array of objects that each represent a planet and their relative size
 var planets = [
-  { name: "Mercury", height: 20, width: 20, distance: 1},
-  { name: "Venus", height: 22, width: 22 },
-  { name: "Earth", height: 30, width: 30 },
-  { name: "Mars", height: 25, width: 25, distance: 33.9},
-  { name: "Jupiter", height: 100, width: 100 },
-  { name: "Saturn", height: 90, width: 90 },
-  { name: "Uranus", height: 80, width: 80 },
-  { name: "Neptune", height: 80, width: 80 },
-  { name: "Pluto", height: 15, width: 15 }
+  // distance in millions of miles, time in days
+  { name: "Mercury", distance: 48, time: 2372},
+  { name: "Venus", distance: 162, time: 153 },
+  { name: "Earth", distance: 0, time: 0 },
+  { name: "Mars", distance: 33.9, time: 300 },
+  { name: "Jupiter", distance: 600, time: 730 },
+  { name: "Saturn", distance: 746, time: 2190 },
+  { name: "Uranus", distance: 1600, time: 3468 },
+  { name: "Neptune", distance: 2900, time: 4380 },
+  { name: "Pluto", distance: 4670, time: 4745 }
 ];
 
 //On load, hide the planets and the sun
