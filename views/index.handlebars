@@ -1,7 +1,7 @@
 <div class="container">
   <div class="container">
 
-    <!-- responsive images -->
+    <!-- Heading -->
     <div id="header" class="row">
       <div class="section">
         <div class="white-text center-align">
@@ -43,7 +43,7 @@
 
   {{log voyager}}
 
-  <!-- The Modal -->
+  {{!-- <!-- The Modal -->
   <div id="planetFacts" class="modal">
 
     <!-- Modal content -->
@@ -56,17 +56,33 @@
 
 
       {{!-- Display planet picture on top and planet info below --}}
-      <div class="planetPicture" style="height:250px;max-width: 100%;"></div>
+      
 
-      <div class="planetInfo"></div>
-      <br>
-      {{!-- links to fill out a trip form or to see past trips already booked --}}
-      <a href="/form">Click here to fill out form</a> | <a href="/allvoyages">Click here to see past trips</a>
+      
+     
 
     </div>
 
+  </div> --}}
+
+<div class="planetCard">
+  <div class="row v-align-middle">
+    <div class="col s12 m4 offset-m4">
+        <div class="card">
+          <div class="card-action #0d47a1 blue darken-4 white-text">
+            <div class="planetHeader"></div>
+            <span class="close">&times;</span>
+          </div>
+          <div class="card-content text-white">
+            <div class="planetPicture" style="height:250px;max-width: 100%;"></div>
+            <div class="planetInfo"></div>
+             <br>
+            {{!-- links to fill out a trip form or to see past trips already booked --}}
+            <a href="/form">Click here to fill out form</a> | <a href="/allvoyages">Click here to see past trips</a>
+          </div>
+        </div>
+    </div>
   </div>
-
-
+</div>
 
 </div>

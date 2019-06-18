@@ -10,6 +10,14 @@ html {
   background-size: cover;
 }
 
+.planetInfo {
+  color: white;
+}
+
+.planetCard {
+  text-align: center;
+}
+
 /* ----------------------------------- M O D A L -------------------------------------- */
 .modal {
   
