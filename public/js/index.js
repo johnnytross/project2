@@ -48,36 +48,37 @@ function renderPlanets() {
     //Show the planets card once a planet is clicked on
     $(".planetCard").show();
 
+    // This URL is for the Solar System OpenData API
     let queryURL = `https://api.le-systeme-solaire.net/rest/bodies/${search}`
-    // "https://images-api.nasa.gov/search?q=mars&media_type=image";
-
+    
+    // Ajax call for the Solar System OpenData API
     $.ajax({
       url: queryURL,
       method: "GET"
     }).then(function (response) {
 
-      // g/cm³ is gram per cubic centimeter, a unit of measurement for density
+      // g/cm³ is gram per cubic centimeter, a unit of measurement for density. If the search term is not the sun, check density from API
       if (search != "sun") {
         let density = response.density;
         $(".planetInfo").append("Planet density: " + density + " g/cm³<br>");
       };
 
-      // m/s² is metre per second squared, a unit of measurement for gravity
+      // m/s² is metre per second squared, a unit of measurement for gravity. if the search term is not the sun, check gravity from API
       if (search != "sun") {
         let gravity = response.gravity;
         $(".planetInfo").append("Gravity: " + gravity + " m/s²<br>");
       };
 
-
+      // Check API for mass exponent 
       let massEx = response.mass.massExponent;
       $(".planetInfo").append("Mass exponent: " + massEx + "<br>");
 
-
+      //Check API for mass value
       let massVal = response.mass.massValue;
       $(".planetInfo").append("Mass value: " + massVal + "<br>");
 
+      //If search term is not the sun, search API for moons
       if (search != "sun") {
-
         let moons = (response.moons).length;
         $(".planetInfo").append("Moons: " + moons + "<br>");
       };
@@ -86,7 +87,8 @@ function renderPlanets() {
     });
 
     //wikipedia API
-    var url2 = `http://en.wikipedia.org/w/api.php?action=query&titles=sun&format=json&callback=?`
+    var url2 = `http://en.wikipedia.org/w/api.php?format=json&action=query&callback=?&prop=extracts&exintro&explaintext&redirects=1&titles=Stack%20Overflow`
+    //`http://en.wikipedia.org/w/api.php?action=query&titles=sun&format=json&callback=?`
     // `http://en.wikipedia.org/w/api.php?action=query&search=${search}&format=json&callback=?`
     //`https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${search}&format=json&callback=?`; 
     
@@ -95,8 +97,6 @@ function renderPlanets() {
     $.ajax({
       url: url2,
       type: 'GET',
-      contentType: "application/json; charset=utf-8",
-      //prop:'images',
       async: false,
       dataType: "json",
       success: function (data, status, jqXHR) {
