@@ -17,7 +17,7 @@ module.exports = function (app) {
   app.get("/allvoyages", function (req, res) {
     console.log('all voyages')
     //sequelize findAll to select * from DB
-    db.Voyager.findAll({}).then(function (dbVoyager) {
+    db.Voyager.findAll({ order: [['createdAt', 'DESC']], limit: 10 }).then(function (dbVoyager) {
       console.log(dbVoyager)
       res.render("example", {
         msg: "Welcome!",
