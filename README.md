@@ -1,8 +1,11 @@
 # Project-2 Galactic Voyager
 
 The dream team:
+
 Johnny T Ross
+
 Ben Cason
+
 Tracy Collins
 
 # So what is this about?
