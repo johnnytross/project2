@@ -1,4 +1,3 @@
-
 <div class="container">
   <div class="container">
 
@@ -19,27 +18,24 @@
   <div id="front-page" class="container center white-text">
     <div class="section">
       <div class="row">
-        <a class="btn-floating pulse #1565c0 teal lighten-3" href="/form"></a> VIEW YOUR DESTINATION
+        <a class="btn-floating pulse #1565c0 teal lighten-3" href="/form"></a> TAKE A TRIP
       </div>
     </div>
 
     {{!-- show the planets to the user, which will orbit around the sun --}}
     <div class="row">
       <div class="section">
-        <a class="btn-floating pulse btn-large #1565c0 blue lighten-1" id="planet-btn" href="#"></a> TAKE A TRIP
+        <a class="btn-floating pulse btn-large #1565c0 blue lighten-1" id="planet-btn" href="#"></a> CHOOSE YOUR
+        DESTINATION
       </div>
     </div>
-
-
-
   </div>
 
 {{!-- Divs where the CSS planets and the sun are created at  --}}
   <div id="planet-div">
     <div class="planet" id="sun"></div>
     <div id="planets"></div>
-    {{!-- a play/pause button because clicking moving planets is difficult --}}
-    <button class="waves-effect waves-teal btn-flat" id="pause">||</button>
+    <button class="waves-effect waves-red accent-4 btn-flat btn-large" id="pause">||</button>
   </div>
 
   {{log voyager}}
@@ -55,8 +51,8 @@
 
     <div class="modal-content">
 
-      {{!-- Display planet picture on top and planet info below --}}
-      <div class="planetPicture"></div>
+
+      <div class="planetPicture" style="height:250px;max-width: 100%;"></div>
       <div class="planetInfo"></div>
       <br>
       {{!-- links to fill out a trip form or to see past trips already booked --}}
@@ -80,5 +76,3 @@
 
 
 </div>
-
-
