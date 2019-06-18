@@ -12,11 +12,11 @@ var planets = [
   { name: "Venus", distance: 162, time: 153 },
   { name: "Earth", distance: 0, time: 0 },
   { name: "Mars", distance: 33.9, time: 300 },
-  { name: "Jupiter", distance: 0, time: 0 },
-  { name: "Saturn", distance: 0, time: 0 },
-  { name: "Uranus", distance: 0, time: 0 },
-  { name: "Neptune", distance: 0, time: 0 },
-  { name: "Pluto", distance: 0, time: 0 }
+  { name: "Jupiter", distance: 600, time: 730 },
+  { name: "Saturn", distance: 746, time: 2190 },
+  { name: "Uranus", distance: 1600, time: 3468 },
+  { name: "Neptune", distance: 2900, time: 4380 },
+  { name: "Pluto", distance: 4670, time: 4745 }
 ];
 
 //On load, hide the planets and the sun
