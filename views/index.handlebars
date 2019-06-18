@@ -35,7 +35,10 @@
   <div id="planet-div">
     <div class="planet" id="sun"></div>
     <div id="planets"></div>
+
+{{!-- a play/pause button because clicking moving planets is difficult --}}
     <button class="waves-effect waves-red accent-4 btn-flat btn-large" id="pause">||</button>
+
   </div>
 
   {{log voyager}}
@@ -52,7 +55,9 @@
     <div class="modal-content">
 
 
+      {{!-- Display planet picture on top and planet info below --}}
       <div class="planetPicture" style="height:250px;max-width: 100%;"></div>
+
       <div class="planetInfo"></div>
       <br>
       {{!-- links to fill out a trip form or to see past trips already booked --}}
