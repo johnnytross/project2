@@ -22,7 +22,7 @@ var planets = [
 $(window).on("load", function () {
   $("#planet-div").hide();
   $("#sun").hide();
-  
+
 });
 
 
@@ -118,7 +118,7 @@ function renderPlanets() {
 
     // $("#sun").hide();
     // $("#planets").hide();
-    
+
 
     $(".planetHeader").html($(this).attr("id"));
     //Add text to the modal as well as a picture
@@ -158,7 +158,7 @@ function renderPlanets() {
     }
 
     // console.log("density: " + density);
-    $(".planetPicture").html(`<img src=${source} alt=${search} height="200" width="250"></img>`)
+    $(".planetPicture").html(`<img src=${source} alt=${search} height="200" max-width: 100%></img>`)
 
     // $("#fact-panel").html(
     //   "<h1>" + $(this).attr("id") + "</h1>\n<h2>It's a planet!</h2>"
@@ -176,8 +176,8 @@ function renderPlanets() {
     }
   });
 
-  $("#pause").on("click", function () {
-    console.log("hi");
+  $("#pause").on("click", function(){
+   // console.log("hi");
 
     if ($(".planet").attr("style") !== "animation-play-state: paused;") {
       $(".planet").attr("style", "animation-play-state: paused;");
