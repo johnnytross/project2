@@ -2,57 +2,21 @@
   line-height: 2.5;
 }
 
-
-
-body {
-background-image: url(https://wi-images.condecdn.net/image/B1NZW376pxM/crop/1620/f/space_11.jpg); background-size: 100%;
-
+html { 
+  background: url(https://wi-images.condecdn.net/image/B1NZW376pxM/crop/1620/f/space_11.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
-/* can be used to darken the whole page or just the background */
-/* #page-mask {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  background-color: rgba(0,0,0,0.6);
-} */
+.planetInfo {
+  color: white;
+}
 
-/* ----------------------------------- M O D A L -------------------------------------- */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
+.planetCard {
   text-align: center;
-  z-index: 1; /* Sit on top */
-  padding-top: 0px; /* Location of the box */
-  margin-top: 50px;
-  left: 0;
-  top: 0;
-  width: 30%; /* Full width */
-  height: auto; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgba(0,0,0,.8);
-  opacity: .8;
-  color: white;
 }
-
-
-.modal-header {
-  padding: 12px 18px;
-  background-color: #0d47a1;
-  color: white;
-  
-}
-
-/* Modal Content */
-/* .modal-content {
-  margin: auto;
-  padding: 20px;
-  width: 80%;
-  background-color: white;
-  opacity: .9;
-} */
 
 /* The Close Button */
 .close {
@@ -70,6 +34,15 @@ background-image: url(https://wi-images.condecdn.net/image/B1NZW376pxM/crop/1620
   cursor: pointer;
 }
 
+span.close {
+  color: #aaaaaa;
+  float: right;
+  top: -10px;
+  font-size: 20px;
+  font-family: monospace;
+  font-weight: bold;
+}
+
 
 
 /* ----------------------------------- M I S C -------------------------------------- */
@@ -82,7 +55,14 @@ h1 {
 #pause {
 color: white;
 position: sticky;
-top: 1000px;
+float: right;
+font-family: 'Courier New', Courier, monospace;
+font-weight: bold;
+}
+
+#pause:hover {
+  background-color: antiquewhite;
+  color: navy;
 }
 
 #fact-panel {
@@ -147,29 +127,29 @@ top: 1000px;
 
 #Saturn {
   --size: 45px;
-  --push: 320px;
-  background-image: linear-gradient(rgb(255, 153, 0), yellow);
+  --push: 330px;
+  background-image: linear-gradient(rgb(255, 153, 0), brown, yellow);
   animation: orbit 50s infinite linear;
 }
 
 
 #Uranus {
   --size: 30px;
-  --push: 360px;
+  --push: 375px;
   background-image: radial-gradient(turquoise, whitesmoke);
   animation: orbit 60s infinite linear;
 }
 
 #Neptune {
   --size: 30px;
-  --push: 400px;
+  --push: 420px;
   background-image: radial-gradient(turquoise,grey);
   animation: orbit 70s infinite linear;
 }
 
 #Pluto {
   --size: 5px;
-  --push: 460px;
+  --push: 470px;
   background-image: radial-gradient(turquoise,grey);
   animation: orbit 87s infinite linear;
 }
@@ -269,3 +249,15 @@ input#username{
 input#username {
   background-color: rgba(0,0,0,.6);
 }
+
+input#username {
+  color: white;
+  
+}
+
+div.container{
+  margin-Top: 30px;
+}
+
+/* ----------------------------------------modals------------------------------------------------ */
+

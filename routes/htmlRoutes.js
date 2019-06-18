@@ -17,9 +17,9 @@ module.exports = function (app) {
   app.get("/allvoyages", function (req, res) {
     console.log('all voyages')
     //sequelize findAll to select * from DB
-    db.Voyager.findAll({}).then(function (dbVoyager) {
+    db.Voyager.findAll({ order: [['createdAt', 'DESC']], limit: 10 }).then(function (dbVoyager) {
       console.log(dbVoyager)
-      res.render("example", {
+      res.render("voyager", {
         msg: "Welcome!",
         voyager: dbVoyager
       });
@@ -29,19 +29,6 @@ module.exports = function (app) {
   //html route to the form page
   app.get("/form", function (req, res) {
     res.render("voyagerform");
-  });
-
-  app.get("/tables", function (req, res) {
-    res.sendFile(path.join(__dirname, "../public/tables.html"));
-  });
-
-  // Load example page and pass in an example by id
-  app.get("/example/:id", function (req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function (dbExample) {
-      res.render("example", {
-        example: dbExample
-      });
-    });
   });
 
   // Render 404 page for any unmatched routes

@@ -1,14 +1,14 @@
 var db = require("../models");
 
 module.exports = function (app) {
-  // Get all examples
+  // Get all voyager entries
   app.get("/api/voyager", function (req, res) {
     db.Voyager.findAll({}).then(function (dbVoyager) {
       res.json(dbVoyager);
     });
   });
 
-  // Create a new example
+  // Create a new voyager trip
   app.post("/api/voyager", function (req, res) {
     console.log('post voyage')
     db.Voyager.create(req.body).then(function (dbVoyager) {
@@ -19,7 +19,7 @@ module.exports = function (app) {
     });
   });
 
-  // Delete an example by id
+  // Delete an voyage by id
   app.delete("/api/voyager/:id", function (req, res) {
     db.Voyager.destroy({ where: { id: req.params.id } }).then(function (dbVoyager) {
       res.json(dbVoyager);

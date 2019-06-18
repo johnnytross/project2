@@ -1,8 +1,7 @@
-
 <div class="container">
   <div class="container">
 
-    <!-- responsive images -->
+    <!-- Heading -->
     <div id="header" class="row">
       <div class="section">
         <div class="white-text center-align">
@@ -15,34 +14,36 @@
   </div>
 
 
-
+{{!-- button that leads to a trip form, pulsating --}}
   <div id="front-page" class="container center white-text">
     <div class="section">
       <div class="row">
-        <a class="btn-floating pulse #1565c0 teal lighten-3" href="/form"></a> VIEW YOUR DESTINATION
+        <a class="btn-floating pulse #1565c0 teal lighten-3" href="/form"></a> TAKE A TRIP
       </div>
     </div>
 
     {{!-- show the planets to the user, which will orbit around the sun --}}
     <div class="row">
       <div class="section">
-        <a class="btn-floating pulse btn-large #1565c0 blue lighten-1" id="planet-btn" href="#"></a> TAKE A TRIP
+        <a class="btn-floating pulse btn-large #1565c0 blue lighten-1" id="planet-btn" href="#"></a> CHOOSE YOUR
+        DESTINATION
       </div>
     </div>
-
-
-
   </div>
 
+{{!-- Divs where the CSS planets and the sun are created at  --}}
   <div id="planet-div">
     <div class="planet" id="sun"></div>
     <div id="planets"></div>
-    <button class="waves-effect waves-teal btn-flat" id="pause">||</button>
+
+{{!-- a play/pause button because clicking moving planets is difficult --}}
+    <button class="waves-effect waves-red accent-4 btn-flat btn-large" id="pause">||</button>
+
   </div>
 
   {{log voyager}}
 
-  <!-- The Modal -->
+  {{!-- <!-- The Modal -->
   <div id="planetFacts" class="modal">
 
     <!-- Modal content -->
@@ -54,28 +55,34 @@
     <div class="modal-content">
 
 
-      <div class="planetPicture"></div>
-      <div class="planetInfo"></div>
-      <br>
-      <a href="/form">Click here to fill out form</a>
+      {{!-- Display planet picture on top and planet info below --}}
+      
+
+      
+     
 
     </div>
 
-  </div>
+  </div> --}}
 
-  <!-- <div class="container center white-text">
-
-            <div class="row">
-                <a class="waves-effect waves-light btn-large #1565c0 blue lighten-1" href="#">Take a Trip</a>
-            </div>
-            <div class="row">
-                <a class="waves-effect waves-light btn-large #1565c0 blue lighten-1" href="#">View your Destinations</a>
-            </div>
+<div class="planetCard">
+  <div class="row v-align-middle">
+    <div class="col s12 m4 offset-m4">
+        <div class="card">
+          <div class="card-action #0d47a1 blue darken-4 white-text">
+            <div class="planetHeader"></div>
+            <span class="close">&times;</span>
+          </div>
+          <div class="card-content text-white">
+            <div class="planetPicture" style="height:250px;max-width: 100%;"></div>
+            <div class="planetInfo"></div>
+             <br>
+            {{!-- links to fill out a trip form or to see past trips already booked --}}
+            <a href="/form">Click here to fill out form</a> | <a href="/allvoyages">Click here to see past trips</a>
+          </div>
         </div>
-    </div> -->
-
-
-
+    </div>
+  </div>
 </div>
 
-
+</div>

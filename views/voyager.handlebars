@@ -1,0 +1,52 @@
+<div class="container">
+
+  <div class="col-8 offset-2">
+    <div class="card mt-4">
+      <div class="card-body width-2 white-text">
+        <div class="card-content blue-text">
+          <h5> TRIP LOG</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-8 offset-2">
+      <div class="card mt-4">
+        <div class="card-body width-2">
+
+          {{#each voyager}}
+
+
+          <div class="card-content blue-text">
+
+            <p class='white-text'>Trip Details</p>
+            <br>
+            <p class='blue-text'>
+              Astronaut Name: {{this.astronaut}}
+              <br>
+              Space Craft: {{this.space_craft}}
+              <br>
+              Planet: {{this.planet}}
+              <br>
+
+              Return Trip: {{#if this.return_trip}}yes
+              {{else}}no{{/if}}
+              <br>
+              <br>
+              <br>
+              <hr>
+            </p>
+          </div>
+
+          {{/each}}
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
